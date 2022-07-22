@@ -1,5 +1,6 @@
 from model.phonebook import PhoneBook
 from model.dispenser import *
+from model.hospital import Hospital
 
 # ******************** PhoneBook ********************
 print("**** PhoneBook Test ****")
@@ -54,3 +55,24 @@ print(dispenser.get_drink_price(drink_code="D2"))
 print("\nTest get_card_credit:")
 print(dispenser.get_card_credit(card_code="C1"))
 print("")
+
+
+# ******************** Hospital ********************
+print("\n**** Hospital Test ****")
+
+hospital = Hospital()
+
+hospital.add_doctor(name="Gregory", surname="House", fiscal_code="GRGHSS", serial_number="M1")
+hospital.add_doctor(name="Patch", surname="Adams", fiscal_code="PTCDMS", serial_number="M2")
+hospital.add_doctor(name="Guido", surname="Tersilli", fiscal_code="GDDTRS", serial_number="M3")
+
+hospital.add_patient(name="Frank", surname="Leg", fiscal_code="FRNBRK", patient_code="P1")
+hospital.add_patient(name="Jenny", surname="Nose", fiscal_code="JNNNSS", patient_code="P2")
+hospital.add_patient(name="Mary", surname="Feet", fiscal_code="MRYFTT", patient_code="P3")
+
+hospital.assignment(serial_number="M3", patient_code="P1")
+hospital.assignment(serial_number="M3", patient_code="P2")
+hospital.assignment(serial_number="M3", patient_code="P3")
+
+print("Test get_patients:")
+print(hospital.get_patients(serial_number="M3"))
